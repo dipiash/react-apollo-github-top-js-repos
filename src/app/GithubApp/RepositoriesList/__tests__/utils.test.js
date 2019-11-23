@@ -7,11 +7,11 @@ describe('getDateSearchByCondition', () => {
 
     beforeEach(() => {
         const date = new Date();
-        date.setMonth(date.getMonth());
+        date.setDate(1);
 
         year = date.getFullYear();
 
-        month = date.getMonth();
+        month = date.getMonth() + 1;
         month = month > 9 ? month : `0${month}`;
 
         day = date.getDate();
@@ -29,18 +29,18 @@ describe('getDateSearchByCondition', () => {
     });
 
     it('getDateSearchByCondition <= and date exists with month < 10', () => {
-        const getDateSearchLate = getDateSearchByCondition('<=', new Date('2019-06-29'));
-        expect(getDateSearchLate).toBe(`created:<=2019-05-29`);
+        const getDateSearchLate = getDateSearchByCondition('<=', new Date('2019-06-01'));
+        expect(getDateSearchLate).toBe(`created:<=2019-06-01`);
     });
 
     it('getDateSearchByCondition <= and date exists with day < 10', () => {
         const getDateSearchLate = getDateSearchByCondition('<=', new Date('2019-11-10'));
-        expect(getDateSearchLate).toBe(`created:<=2019-10-10`);
+        expect(getDateSearchLate).toBe(`created:<=2019-11-01`);
     });
 
     it('getDateSearchByCondition <= and date exists with day < 10 and month < 10', () => {
         const getDateSearchLate = getDateSearchByCondition('<=', new Date('2019-06-09'));
-        expect(getDateSearchLate).toBe(`created:<=2019-05-09`);
+        expect(getDateSearchLate).toBe(`created:<=2019-06-01`);
     });
 });
 
