@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {RepositoriesList as DumbRepositoriesList} from './RepositoriesList';
+import {Pagination} from "./Pagination";
 
 import { Query } from "react-apollo";
 import {getListRepositories} from "gql/query";
@@ -27,7 +28,7 @@ const EnhancedRepositoriesList = ({license, searchName, limit}) => {
             }}
             fetchPolicy="cache-and-network"
         >
-            {({ data, error, loading }) => {
+            {({ data, error, loading, fetchMore }) => {
                 return (
                     <>
                         <DumbRepositoriesList
@@ -41,6 +42,14 @@ const EnhancedRepositoriesList = ({license, searchName, limit}) => {
                             })}
                             loading={loading}
                             error={error}
+                        />
+                        <Pagination
+                            fetchMore={fetchMore}
+                            loading={loading}
+                            queryString={queryString}
+                            limit={limitItems}
+                            cursorBefore={data && data.search.pageInfo.hasPreviousPage && data.search.pageInfo.startCursor}
+                            cursorAfter={data && data.search.pageInfo.hasNextPage && data.search.pageInfo.endCursor}
                         />
                     </>
                 );
