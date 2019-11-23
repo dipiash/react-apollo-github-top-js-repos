@@ -14,9 +14,9 @@ describe('Table', () => {
   });
 
   it('Render table with error data', () => {
-    const { getByText } = render(<Table error />);
+    const { getByText } = render(<Table error={<div>Loading data error</div>} />);
 
-    expect(getByText('Repositories list loading error.')).toBeTruthy();
+    expect(getByText('Loading data error')).toBeTruthy();
   });
 
   it('Render table with full data', () => {

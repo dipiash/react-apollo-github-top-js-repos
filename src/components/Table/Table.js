@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import cm from './Table.module.css';
-import { Error } from 'components/Error';
 
 export const Table = ({ columns, data, error }) => {
   const columnKeys = Object.keys(columns);
@@ -19,7 +18,7 @@ export const Table = ({ columns, data, error }) => {
         </div>
       </div>
       <div className={cm.tbody}>
-        {error && <Error text="Repositories list loading error." />}
+        {error ? error : null}
         {!error && (!data || (data && !data.length)) && <div className={cm.empty}>No data</div>}
         {data.map(item => (
           <div className={cm.tr} key={item.key}>
@@ -38,6 +37,7 @@ export const Table = ({ columns, data, error }) => {
 Table.propTypes = {
   columns: PropTypes.object,
   data: PropTypes.array,
+  error: PropTypes.any,
 };
 
 Table.defaultProps = {

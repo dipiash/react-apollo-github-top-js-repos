@@ -8,6 +8,7 @@ import { getListRepositories } from 'gql/query';
 import { getDateSearchByCondition, getLicenseParams, getSearchNameParams } from './utils';
 import { Table } from 'components/Table';
 import { Loader } from 'components/Loader';
+import { Error } from 'components/Error';
 
 export const RepositoriesList = ({ license, searchName, limit }) => {
   const queryString = [
@@ -51,7 +52,7 @@ export const RepositoriesList = ({ license, searchName, limit }) => {
                   date: listItem.node.createdAt,
                 };
               })}
-              error={error}
+              error={error ? <Error text="Repositories list loading error." /> : false}
             />
             <Pagination
               fetchMore={fetchMore}
