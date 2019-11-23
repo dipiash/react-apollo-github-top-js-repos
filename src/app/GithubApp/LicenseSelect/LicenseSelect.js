@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Select } from 'components/Select';
 
@@ -23,4 +24,12 @@ export const LicenseSelect = ({ onChange, ...rest }) => {
       <Select data-testid="licenses-select" options={options} onChange={onChange} {...rest} />
     </Loader>
   );
+};
+
+LicenseSelect.propTypes = {
+  onChange: PropTypes.func,
+};
+
+LicenseSelect.defaultProps = {
+  onChange: () => {},
 };
