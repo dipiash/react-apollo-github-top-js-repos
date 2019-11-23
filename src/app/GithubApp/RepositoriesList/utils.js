@@ -1,9 +1,9 @@
 export const getDateSearchByCondition = (condition = '>=', date = new Date()) => {
-    date.setMonth(date.getMonth());
+    date.setDate(1);
 
     const year = date.getFullYear();
 
-    let month = date.getMonth();
+    let month = date.getMonth() + 1;
     month = month > 9 ? month : `0${month}`;
 
     let day = date.getDate();

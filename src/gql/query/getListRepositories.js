@@ -16,6 +16,7 @@ export const getListRepositories = gql`
                             name
                         }
                         updatedAt
+                        createdAt
                     }
                 }
                 cursor
