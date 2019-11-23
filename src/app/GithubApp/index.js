@@ -1,3 +1,3 @@
-import {GithubApp} from './GithubApp';
+import { GithubApp } from './GithubApp';
 
-export {GithubApp};
+export { GithubApp };

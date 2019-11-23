@@ -1,3 +1,3 @@
-import {RepositoriesList} from './RepositoriesList';
+import { RepositoriesList } from './RepositoriesList';
 
-export {RepositoriesList};
+export { RepositoriesList };

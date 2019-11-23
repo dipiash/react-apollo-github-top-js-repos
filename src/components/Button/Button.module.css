@@ -1,16 +1,16 @@
 .buttonComponent {
-    padding: 5px;
-    border: 1px solid #eee;
-    text-align: center;
-    cursor: pointer;
-    transition: background-color .3s ease-in;
-    border-radius: 5px;
+  padding: 5px;
+  border: 1px solid #eee;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color .3s ease-in;
+  border-radius: 5px;
 }
 
 .buttonComponent:hover {
-    background-color: #eee;
+  background-color: #eee;
 }
 
 .buttonComponent:disabled {
-    cursor: not-allowed;
+  cursor: not-allowed;
 }

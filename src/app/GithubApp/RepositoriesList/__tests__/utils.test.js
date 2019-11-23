@@ -1,73 +1,73 @@
-import {getDateSearchByCondition, getLicenseParams, getSearchNameParams} from '../utils';
+import { getDateSearchByCondition, getLicenseParams, getSearchNameParams } from '../utils';
 
 describe('getDateSearchByCondition', () => {
-    let year = null;
-    let month = null;
-    let day = null;
+  let year = null;
+  let month = null;
+  let day = null;
 
-    beforeEach(() => {
-        const date = new Date();
-        date.setDate(1);
+  beforeEach(() => {
+    const date = new Date();
+    date.setDate(1);
 
-        year = date.getFullYear();
+    year = date.getFullYear();
 
-        month = date.getMonth() + 1;
-        month = month > 9 ? month : `0${month}`;
+    month = date.getMonth() + 1;
+    month = month > 9 ? month : `0${month}`;
 
-        day = date.getDate();
-        day = day > 9 ? day : `0${day}`;
-    });
+    day = date.getDate();
+    day = day > 9 ? day : `0${day}`;
+  });
 
-    it('getDateSearchByCondition =>', () => {
-        const getDateSearchDefault = getDateSearchByCondition();
-        expect(getDateSearchDefault).toBe(`created:>=${year}-${month}-${day}`);
-    });
+  it('getDateSearchByCondition =>', () => {
+    const getDateSearchDefault = getDateSearchByCondition();
+    expect(getDateSearchDefault).toBe(`created:>=${year}-${month}-${day}`);
+  });
 
-    it('getDateSearchByCondition <=', () => {
-        const getDateSearchLate = getDateSearchByCondition('<=');
-        expect(getDateSearchLate).toBe(`created:<=${year}-${month}-${day}`);
-    });
+  it('getDateSearchByCondition <=', () => {
+    const getDateSearchLate = getDateSearchByCondition('<=');
+    expect(getDateSearchLate).toBe(`created:<=${year}-${month}-${day}`);
+  });
 
-    it('getDateSearchByCondition <= and date exists with month < 10', () => {
-        const getDateSearchLate = getDateSearchByCondition('<=', new Date('2019-06-01'));
-        expect(getDateSearchLate).toBe(`created:<=2019-06-01`);
-    });
+  it('getDateSearchByCondition <= and date exists with month < 10', () => {
+    const getDateSearchLate = getDateSearchByCondition('<=', new Date('2019-06-01'));
+    expect(getDateSearchLate).toBe(`created:<=2019-06-01`);
+  });
 
-    it('getDateSearchByCondition <= and date exists with day < 10', () => {
-        const getDateSearchLate = getDateSearchByCondition('<=', new Date('2019-11-10'));
-        expect(getDateSearchLate).toBe(`created:<=2019-11-01`);
-    });
+  it('getDateSearchByCondition <= and date exists with day < 10', () => {
+    const getDateSearchLate = getDateSearchByCondition('<=', new Date('2019-11-10'));
+    expect(getDateSearchLate).toBe(`created:<=2019-11-01`);
+  });
 
-    it('getDateSearchByCondition <= and date exists with day < 10 and month < 10', () => {
-        const getDateSearchLate = getDateSearchByCondition('<=', new Date('2019-06-09'));
-        expect(getDateSearchLate).toBe(`created:<=2019-06-01`);
-    });
+  it('getDateSearchByCondition <= and date exists with day < 10 and month < 10', () => {
+    const getDateSearchLate = getDateSearchByCondition('<=', new Date('2019-06-09'));
+    expect(getDateSearchLate).toBe(`created:<=2019-06-01`);
+  });
 });
 
 describe('getLicenseParams', () => {
-    it('getLicenseParams without params', () => {
-        expect(getLicenseParams()).toBe('')
-    });
+  it('getLicenseParams without params', () => {
+    expect(getLicenseParams()).toBe('');
+  });
 
-    it('getLicenseParams with null param', () => {
-        expect(getLicenseParams(null)).toBe('')
-    });
+  it('getLicenseParams with null param', () => {
+    expect(getLicenseParams(null)).toBe('');
+  });
 
-    it('getLicenseParams with valid param', () => {
-        expect(getLicenseParams('mit')).toBe('license:mit')
-    });
+  it('getLicenseParams with valid param', () => {
+    expect(getLicenseParams('mit')).toBe('license:mit');
+  });
 });
 
 describe('getSearchNameParams', () => {
-    it('getSearchNameParams without params', () => {
-        expect(getSearchNameParams()).toBe('')
-    });
+  it('getSearchNameParams without params', () => {
+    expect(getSearchNameParams()).toBe('');
+  });
 
-    it('getSearchNameParams with null param', () => {
-        expect(getSearchNameParams(null)).toBe('')
-    });
+  it('getSearchNameParams with null param', () => {
+    expect(getSearchNameParams(null)).toBe('');
+  });
 
-    it('getSearchNameParams with valid param', () => {
-        expect(getSearchNameParams('react')).toBe('react in:name')
-    });
+  it('getSearchNameParams with valid param', () => {
+    expect(getSearchNameParams('react')).toBe('react in:name');
+  });
 });

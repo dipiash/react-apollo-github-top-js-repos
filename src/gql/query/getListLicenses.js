@@ -1,11 +1,11 @@
-import {gql} from 'apollo-boost';
+import { gql } from 'apollo-boost';
 
 export const getListLicenses = gql`
-    query GetListLicensies {
-        licenses {
-            id
-            name
-            key
-        }
+  query GetListLicensies {
+    licenses {
+      id
+      name
+      key
     }
+  }
 `;

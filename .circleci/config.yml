@@ -20,6 +20,9 @@ jobs:
           name: mkdir-coverage
           command: mkdir coverage
       - run:
+          name: eslint
+          command: npm run lint
+      - run:
           name: test
           command: npm run test:ci
           environment:

@@ -1,3 +1,3 @@
-import {LicenseSelect} from './LicenseSelect';
+import { LicenseSelect } from './LicenseSelect';
 
-export {LicenseSelect};
+export { LicenseSelect };
