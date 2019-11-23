@@ -1,12 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import {RepositoriesList} from "./RepositoriesList";
+import {Header} from "./Header";
 
 export const GithubApp = () => {
+    const [license, setLicense] = useState(null);
 
     return (
         <>
-            <RepositoriesList license={null} searchName={null} limit={10} />
+            <Header setLicense={setLicense} />
+            <RepositoriesList license={license} searchName={null} limit={10} />
         </>
     );
 };

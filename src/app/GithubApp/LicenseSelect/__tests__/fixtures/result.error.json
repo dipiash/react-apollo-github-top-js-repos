@@ -1,0 +1,21 @@
+[
+  {
+    "path": [
+      "query GetListLicensies",
+      "licenses",
+      "id1"
+    ],
+    "extensions": {
+      "code": "undefinedField",
+      "typeName": "License",
+      "fieldName": "id1"
+    },
+    "locations": [
+      {
+        "line": 3,
+        "column": 5
+      }
+    ],
+    "message": "Field 'id1' doesn't exist on type 'License'"
+  }
+]
