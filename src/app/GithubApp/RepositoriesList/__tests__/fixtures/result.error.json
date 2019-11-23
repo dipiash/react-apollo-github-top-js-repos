@@ -1,0 +1,24 @@
+[
+  {
+    "path": [
+      "query GetListRepositories",
+      "search",
+      "edges",
+      "node",
+      "... on Repository",
+      "name1"
+    ],
+    "extensions": {
+      "code": "undefinedField",
+      "typeName": "Repository",
+      "fieldName": "name1"
+    },
+    "locations": [
+      {
+        "line": 8,
+        "column": 11
+      }
+    ],
+    "message": "Field 'name1' doesn't exist on type 'Repository'"
+  }
+]
