@@ -1,5 +1,16 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# Before start
+
+Please create `.env.local` file and setup env variable as is in `.env.example`.
+
+```dotenv
+REACT_APP_GITHUB_TOKEN=SOME_TOKEN_FROM_GITHUB
+REACT_APP_GITHUB_API_ENDPOINT=https://api.github.com/graphql
+```
+
+For create GitHub access token please visit [link](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line).
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -43,26 +54,12 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+### TODO
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- [ ] `#task1` Render list of repositories which created last month and sorting by stars
+- [ ] `#task2` Add filter by license
+- [ ] `#task3` Add search field
+- [ ] `#task4` Add tests
+- [ ] `#task5` Add pagination
+- [ ] `#task6` Add loader
+- [ ] `#task6` Add responsive
