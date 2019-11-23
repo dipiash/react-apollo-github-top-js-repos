@@ -9,7 +9,7 @@ import * as utils from '../utils';
 
 describe('Pagination', () => {
   it('Button disabled if loading prop is true', async () => {
-    const { getByText, getByTestId } = render(<Pagination loading={true} />);
+    const { getByText, getByTestId } = render(<Pagination queryString="queryString" fetchMore={() => {}} loading={true} />);
 
     expect(getByText('< Prev')).toBeTruthy();
     expect(getByText('Next >')).toBeTruthy();
@@ -22,7 +22,9 @@ describe('Pagination', () => {
   });
 
   it('Prev button disabled', () => {
-    const { getByTestId } = render(<Pagination loading={false} cursorBefore={null} cursorAfter="cursorAfter" />);
+    const { getByTestId } = render(
+      <Pagination queryString="queryString" fetchMore={() => {}} loading={false} cursorBefore={null} cursorAfter="cursorAfter" />,
+    );
 
     const prevButton = getByTestId('button-prev');
     expect(prevButton.disabled).toBe(true);
@@ -32,7 +34,9 @@ describe('Pagination', () => {
   });
 
   it('Next button disabled', () => {
-    const { getByTestId } = render(<Pagination loading={false} cursorBefore="cursorBefore" cursorAfter={null} />);
+    const { getByTestId } = render(
+      <Pagination queryString="queryString" fetchMore={() => {}} loading={false} cursorBefore="cursorBefore" cursorAfter={null} />,
+    );
 
     const prevButton = getByTestId('button-prev');
     expect(prevButton.disabled).toBe(false);
@@ -44,7 +48,9 @@ describe('Pagination', () => {
   it('Handle on click', () => {
     let dataChanged = false;
 
-    const { getByTestId } = render(<Pagination loading={false} cursorBefore="cursorBefore" cursorAfter="cursorAfter" />);
+    const { getByTestId } = render(
+      <Pagination queryString="queryString" fetchMore={() => {}} loading={false} cursorBefore="cursorBefore" cursorAfter="cursorAfter" />,
+    );
 
     const spy = jest.spyOn(utils, 'enhancedFetchMore');
     spy.mockImplementation(() => {

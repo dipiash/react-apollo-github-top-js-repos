@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Pagination } from './Pagination';
 
@@ -67,4 +68,14 @@ export const RepositoriesList = ({ license, searchName, limit }) => {
       }}
     </Query>
   );
+};
+
+RepositoriesList.propTypes = {
+  license: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  searchName: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  limit: PropTypes.number,
+};
+
+PropTypes.defaultProps = {
+  limit: 10,
 };

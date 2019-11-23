@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import cm from './Button.module.css';
 
-export const Button = ({ children, classNames, onClick, ...rest }) => (
-  <button className={cn(cm.buttonComponent, classNames)} onClick={onClick} {...rest}>
+export const Button = ({ children, className, onClick, ...rest }) => (
+  <button className={cn(cm.buttonComponent, className)} onClick={onClick} {...rest}>
     {children}
   </button>
 );

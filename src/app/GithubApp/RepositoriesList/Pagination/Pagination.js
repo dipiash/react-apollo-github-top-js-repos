@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { Button } from 'components/Button';
 
@@ -10,6 +11,7 @@ export const Pagination = ({ fetchMore, loading, queryString, cursorAfter, curso
   return (
     <div className={cm.PaginationWrapper}>
       <Button
+        className={cm.responsiveButton}
         data-testid="button-prev"
         disabled={loading || !cursorBefore}
         onClick={() => enhancedFetchMore({ fetchMore, queryString, cursorBefore, limit })}
@@ -17,6 +19,7 @@ export const Pagination = ({ fetchMore, loading, queryString, cursorAfter, curso
         {'<'} Prev
       </Button>
       <Button
+        className={cm.responsiveButton}
         data-testid="button-next"
         disabled={loading || !cursorAfter}
         onClick={() => enhancedFetchMore({ fetchMore, queryString, cursorAfter, limit })}
@@ -25,4 +28,13 @@ export const Pagination = ({ fetchMore, loading, queryString, cursorAfter, curso
       </Button>
     </div>
   );
+};
+
+Pagination.propTypes = {
+  fetchMore: PropTypes.func.isRequired,
+  queryString: PropTypes.string.isRequired,
+  loading: PropTypes.bool,
+  cursorAfter: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  cursorBefore: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  limit: PropTypes.number,
 };

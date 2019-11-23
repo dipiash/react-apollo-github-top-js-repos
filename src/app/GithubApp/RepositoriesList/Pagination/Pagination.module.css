@@ -3,3 +3,8 @@
   align-items: center;
   justify-content: center;
 }
+
+.responsiveButton {
+  flex: 1;
+  margin: 5px;
+}
