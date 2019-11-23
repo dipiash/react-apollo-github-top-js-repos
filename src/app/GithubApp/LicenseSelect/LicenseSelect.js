@@ -23,7 +23,7 @@ export const LicenseSelect = ({onChange, ...rest}) => {
         : [];
 
     return (
-        <Loader data-testid="licenses-select-loading" loading={loading}>
+        <Loader loading={loading} data-testid="licenses-select-loading">
             <Select
                 data-testid="licenses-select"
                 options={options}

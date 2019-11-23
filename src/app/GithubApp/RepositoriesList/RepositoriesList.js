@@ -8,7 +8,7 @@ import {Error} from "components/Error";
 
 export const RepositoriesList = ({list, loading, error}) => {
     return (
-        <Loader loading={loading}>
+        <Loader loading={loading} data-testif="repositories-list-loading">
             <div className={cm.itemListHeader}>
                 <ListLine
                     name="Name"
