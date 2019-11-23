@@ -1,8 +1,14 @@
 import React from 'react';
 
+import {ApolloProvider} from "@apollo/react-hooks";
+
+import {gqlClient} from "./gql/client";
+
 function App() {
     return (
-        <div></div>
+        <ApolloProvider client={gqlClient}>
+            <div></div>
+        </ApolloProvider>
     );
 }
 
