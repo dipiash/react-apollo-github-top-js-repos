@@ -1,10 +1,6 @@
 [
   {
-    "path": [
-      "query GetListLicensies",
-      "licenses",
-      "id1"
-    ],
+    "path": ["query GetListLicensies", "licenses", "id1"],
     "extensions": {
       "code": "undefinedField",
       "typeName": "License",

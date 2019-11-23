@@ -1,13 +1,6 @@
 [
   {
-    "path": [
-      "query GetListRepositories",
-      "search",
-      "edges",
-      "node",
-      "... on Repository",
-      "name1"
-    ],
+    "path": ["query GetListRepositories", "search", "edges", "node", "... on Repository", "name1"],
     "extensions": {
       "code": "undefinedField",
       "typeName": "Repository",

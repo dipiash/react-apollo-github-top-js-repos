@@ -18,14 +18,18 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --coverage --watchAll=false",
+    "test": "react-scripts test --coverage",
     "test:ci": "react-scripts test --runInBand --coverage --watchAll=false --reporters=default --reporters=jest-junit --coverageReporters=text-lcov > ./coverage/lcov.info",
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
+    "pretty": "prettier --write \"./**/*.{js,jsx,json}\"",
     "eject": "react-scripts eject"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run pretty && npm run lint:fix",
+      "pre-push": "npm test"
+    }
   },
   "browserslist": {
     "production": [
@@ -69,6 +73,7 @@
     "eslint-config-prettier": "^6.7.0",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.16.0",
+    "husky": "^3.1.0",
     "jest-junit": "^9.0.0",
     "prettier": "^1.19.1"
   }
