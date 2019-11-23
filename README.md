@@ -59,4 +59,4 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 - [x] `#task4` Add tests
 - [x] `#task5` Add pagination
 - [x] `#task6` Add loader
-- [x] `#task6` Add responsive
+- [x] `#task7` Add responsive
