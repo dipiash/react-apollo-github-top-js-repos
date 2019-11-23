@@ -1,5 +1,5 @@
 [![CircleCI](https://circleci.com/gh/dipiash/react-apollo-github-top-js-repos/tree/master.svg?style=svg&circle-token=a7b001f9d52feda71c8de756a65e00a71494ea63)](https://circleci.com/gh/dipiash/react-apollo-github-top-js-repos/tree/master)
-[![Coverage Status](https://coveralls.io/repos/github/dipiash/react-apollo-github-top-js-repos/badge.svg)](https://coveralls.io/github/dipiash/react-apollo-github-top-js-repos)
+[![Coverage Status](https://coveralls.io/repos/github/dipiash/react-apollo-github-top-js-repos/badge.svg?branch=master)](https://coveralls.io/github/dipiash/react-apollo-github-top-js-repos?branch=master)
 
 # react-apollo-github-top-js-repos
 This project allow you explore repositories created with Java Script language for last month from today.
