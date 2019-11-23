@@ -1,0 +1,7 @@
+.select {
+    display: block;
+    border: 1px solid #eee;
+    background-color: #fff;
+    height: 30px;
+    box-sizing: border-box;
+}
