@@ -10,7 +10,7 @@ export const Button = ({children, classNames, onClick, ...rest} = {onClick: () =
 );
 
 Button.propTypes = {
-    children: PropTypes.object,
+    children: PropTypes.any,
     className: PropTypes.oneOfType([
         PropTypes.string,
         PropTypes.object,
