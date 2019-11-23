@@ -1,20 +1,21 @@
 {
   "search": {
-    "repositoryCount": 260288,
+    "repositoryCount": 188433,
     "edges": [
       {
         "node": {
-          "id": "MDEwOlJlcG9zaXRvcnkyMTgxMDIxNjI=",
-          "name": "BullshitGenerator",
+          "id": "MDEwOlJlcG9zaXRvcnkyMjAzNTgzNjQ=",
+          "name": "react-adaptive-hooks",
           "stargazers": {
-            "totalCount": 10359,
+            "totalCount": 3210,
             "__typename": "StargazerConnection"
           },
           "licenseInfo": {
-            "name": "Other",
+            "name": "Apache License 2.0",
             "__typename": "License"
           },
-          "updatedAt": "2019-11-23T09:18:51Z",
+          "updatedAt": "2019-11-23T19:17:09Z",
+          "createdAt": "2019-11-08T01:04:55Z",
           "__typename": "Repository"
         },
         "cursor": "Y3Vyc29yOjE=",
@@ -22,17 +23,15 @@
       },
       {
         "node": {
-          "id": "MDEwOlJlcG9zaXRvcnkyMjAzNTgzNjQ=",
-          "name": "react-adaptive-hooks",
+          "id": "MDEwOlJlcG9zaXRvcnkyMTkzNTk4ODM=",
+          "name": "lite-youtube-embed",
           "stargazers": {
-            "totalCount": 3201,
+            "totalCount": 784,
             "__typename": "StargazerConnection"
           },
-          "licenseInfo": {
-            "name": "Apache License 2.0",
-            "__typename": "License"
-          },
-          "updatedAt": "2019-11-23T04:33:15Z",
+          "licenseInfo": null,
+          "updatedAt": "2019-11-23T19:37:44Z",
+          "createdAt": "2019-11-03T20:18:07Z",
           "__typename": "Repository"
         },
         "cursor": "Y3Vyc29yOjI=",
@@ -40,17 +39,18 @@
       },
       {
         "node": {
-          "id": "MDEwOlJlcG9zaXRvcnkyMTgzNjA4MDg=",
-          "name": "react-interactive-paycard",
+          "id": "MDEwOlJlcG9zaXRvcnkyMTk2NTAyNzk=",
+          "name": "suspense-experimental-github-demo",
           "stargazers": {
-            "totalCount": 829,
+            "totalCount": 749,
             "__typename": "StargazerConnection"
           },
           "licenseInfo": {
             "name": "MIT License",
             "__typename": "License"
           },
-          "updatedAt": "2019-11-23T09:05:17Z",
+          "updatedAt": "2019-11-23T11:50:07Z",
+          "createdAt": "2019-11-05T03:32:27Z",
           "__typename": "Repository"
         },
         "cursor": "Y3Vyc29yOjM=",
@@ -58,14 +58,15 @@
       },
       {
         "node": {
-          "id": "MDEwOlJlcG9zaXRvcnkyMTkzNTk4ODM=",
-          "name": "lite-youtube-embed",
+          "id": "MDEwOlJlcG9zaXRvcnkyMjA1MDI1NTA=",
+          "name": "preset-modules",
           "stargazers": {
-            "totalCount": 757,
+            "totalCount": 526,
             "__typename": "StargazerConnection"
           },
           "licenseInfo": null,
-          "updatedAt": "2019-11-23T09:30:28Z",
+          "updatedAt": "2019-11-23T17:23:16Z",
+          "createdAt": "2019-11-08T16:07:22Z",
           "__typename": "Repository"
         },
         "cursor": "Y3Vyc29yOjQ=",
@@ -73,17 +74,18 @@
       },
       {
         "node": {
-          "id": "MDEwOlJlcG9zaXRvcnkyMTk2NTAyNzk=",
-          "name": "suspense-experimental-github-demo",
+          "id": "MDEwOlJlcG9zaXRvcnkyMTk2MjM1ODg=",
+          "name": "ARC",
           "stargazers": {
-            "totalCount": 748,
+            "totalCount": 525,
             "__typename": "StargazerConnection"
           },
           "licenseInfo": {
-            "name": "MIT License",
+            "name": "Apache License 2.0",
             "__typename": "License"
           },
-          "updatedAt": "2019-11-23T06:08:59Z",
+          "updatedAt": "2019-11-23T17:54:16Z",
+          "createdAt": "2019-11-05T00:34:29Z",
           "__typename": "Repository"
         },
         "cursor": "Y3Vyc29yOjU=",
@@ -91,68 +93,21 @@
       },
       {
         "node": {
-          "id": "MDEwOlJlcG9zaXRvcnkyMjA1MDI1NTA=",
-          "name": "preset-modules",
-          "stargazers": {
-            "totalCount": 524,
-            "__typename": "StargazerConnection"
-          },
-          "licenseInfo": null,
-          "updatedAt": "2019-11-23T07:05:18Z",
-          "__typename": "Repository"
-        },
-        "cursor": "Y3Vyc29yOjY=",
-        "__typename": "SearchResultItemEdge"
-      },
-      {
-        "node": {
-          "id": "MDEwOlJlcG9zaXRvcnkyMTk2MjM1ODg=",
-          "name": "ARC",
-          "stargazers": {
-            "totalCount": 522,
-            "__typename": "StargazerConnection"
-          },
-          "licenseInfo": {
-            "name": "Apache License 2.0",
-            "__typename": "License"
-          },
-          "updatedAt": "2019-11-22T19:44:19Z",
-          "__typename": "Repository"
-        },
-        "cursor": "Y3Vyc29yOjc=",
-        "__typename": "SearchResultItemEdge"
-      },
-      {
-        "node": {
-          "id": "MDEwOlJlcG9zaXRvcnkyMTcyOTA4NzM=",
-          "name": "workshop-webgl-glsl",
-          "stargazers": {
-            "totalCount": 467,
-            "__typename": "StargazerConnection"
-          },
-          "licenseInfo": null,
-          "updatedAt": "2019-11-21T20:29:13Z",
-          "__typename": "Repository"
-        },
-        "cursor": "Y3Vyc29yOjg=",
-        "__typename": "SearchResultItemEdge"
-      },
-      {
-        "node": {
           "id": "MDEwOlJlcG9zaXRvcnkyMjIyNDA2ODg=",
           "name": "browsergap.ce",
           "stargazers": {
-            "totalCount": 440,
+            "totalCount": 447,
             "__typename": "StargazerConnection"
           },
           "licenseInfo": {
             "name": "BSD 2-Clause \"Simplified\" License",
             "__typename": "License"
           },
-          "updatedAt": "2019-11-23T08:36:14Z",
+          "updatedAt": "2019-11-23T18:14:02Z",
+          "createdAt": "2019-11-17T11:55:36Z",
           "__typename": "Repository"
         },
-        "cursor": "Y3Vyc29yOjk=",
+        "cursor": "Y3Vyc29yOjY=",
         "__typename": "SearchResultItemEdge"
       },
       {
@@ -164,7 +119,59 @@
             "__typename": "StargazerConnection"
           },
           "licenseInfo": null,
-          "updatedAt": "2019-11-22T02:46:32Z",
+          "updatedAt": "2019-11-23T19:31:08Z",
+          "createdAt": "2019-11-07T19:29:17Z",
+          "__typename": "Repository"
+        },
+        "cursor": "Y3Vyc29yOjc=",
+        "__typename": "SearchResultItemEdge"
+      },
+      {
+        "node": {
+          "id": "MDEwOlJlcG9zaXRvcnkyMTk3ODg5Njc=",
+          "name": "pdfTranslator",
+          "stargazers": {
+            "totalCount": 200,
+            "__typename": "StargazerConnection"
+          },
+          "licenseInfo": null,
+          "updatedAt": "2019-11-23T15:48:52Z",
+          "createdAt": "2019-11-05T16:15:47Z",
+          "__typename": "Repository"
+        },
+        "cursor": "Y3Vyc29yOjg=",
+        "__typename": "SearchResultItemEdge"
+      },
+      {
+        "node": {
+          "id": "MDEwOlJlcG9zaXRvcnkyMjExNzkwMDk=",
+          "name": "hntitlenator",
+          "stargazers": {
+            "totalCount": 172,
+            "__typename": "StargazerConnection"
+          },
+          "licenseInfo": {
+            "name": "MIT License",
+            "__typename": "License"
+          },
+          "updatedAt": "2019-11-23T13:42:46Z",
+          "createdAt": "2019-11-12T09:27:21Z",
+          "__typename": "Repository"
+        },
+        "cursor": "Y3Vyc29yOjk=",
+        "__typename": "SearchResultItemEdge"
+      },
+      {
+        "node": {
+          "id": "MDEwOlJlcG9zaXRvcnkyMTk0NTU2OTY=",
+          "name": "thesis-helper",
+          "stargazers": {
+            "totalCount": 140,
+            "__typename": "StargazerConnection"
+          },
+          "licenseInfo": null,
+          "updatedAt": "2019-11-23T14:03:11Z",
+          "createdAt": "2019-11-04T08:47:08Z",
           "__typename": "Repository"
         },
         "cursor": "Y3Vyc29yOjEw",

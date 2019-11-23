@@ -1,35 +1,69 @@
 import React from 'react';
 
-import {Loader} from "components/Loader";
-import {ListLine} from "./ListLine";
+import {Pagination} from "./Pagination";
 
-import cm from './RepositoriesList.module.css'
+import { Query } from "react-apollo";
+import {getListRepositories} from "gql/query";
+
+import {getDateSearchByCondition, getLicenseParams, getSearchNameParams} from "./utils";
+import {Table} from "components/Table";
+import {Loader} from "components/Loader";
 import {Error} from "components/Error";
 
-export const RepositoriesList = ({list, loading, error}) => {
-    return (
-        <Loader loading={loading} data-testif="repositories-list-loading">
-            <div className={cm.itemListHeader}>
-                <ListLine
-                    name="Name"
-                    stars="Stars"
-                    license="License"
-                    isBold
-                />
-            </div>
+export const RepositoriesList = ({license, searchName, limit}) => {
+    const queryString = [ // TODO: Can move up or to another function to create a custom filters by line
+        'sort:stars-desc',
+        'language:JavaScript',
+        getDateSearchByCondition(),
+        getLicenseParams(license),
+        getSearchNameParams(searchName),
+    ].join(' ');
+    const limitItems = limit || 10;
 
-            <div className={cm.itemsList}>
-                {error && <Error text="Repositories list loading error."/>}
-                {!error && (!list || (list && !list.length)) && <div>Empty List</div>}
-                {list && list.map(listItem => (
-                    <ListLine
-                        key={listItem.id}
-                        name={listItem.name}
-                        stars={listItem.stars}
-                        license={listItem.license || <i>Unlicensed</i>}
-                    />
-                ))}
-            </div>
-        </Loader>
+    return (
+        <Query
+            query={getListRepositories}
+            variables={{
+                queryString: queryString,
+                cursorAfter: null,
+                first: limitItems,
+            }}
+            fetchPolicy="cache-and-network"
+        >
+            {({ data, error, loading, fetchMore }) => {
+                const resultData = (data && data.search && data.search.edges) || [];
+
+                return (
+                    <Loader loading={loading} data-testif="repositories-list-loading">
+                        <Table
+                            columns={{
+                                name: 'Name',
+                                stars: 'Stars',
+                                license: 'License',
+                                date: 'Date',
+                            }}
+                            data={resultData.map(listItem => {
+                                return {
+                                    key: listItem.node.id,
+                                    name: listItem.node.name,
+                                    stars: listItem.node.stargazers.totalCount,
+                                    license: listItem.node.licenseInfo && listItem.node.licenseInfo.name,
+                                    date: listItem.node.createdAt,
+                                }
+                            })}
+                            error={error}
+                        />
+                        <Pagination
+                            fetchMore={fetchMore}
+                            loading={loading}
+                            queryString={queryString}
+                            limit={limitItems}
+                            cursorBefore={data && data.search.pageInfo.hasPreviousPage && data.search.pageInfo.startCursor}
+                            cursorAfter={data && data.search.pageInfo.hasNextPage && data.search.pageInfo.endCursor}
+                        />
+                    </Loader>
+                );
+            }}
+        </Query>
     );
 };

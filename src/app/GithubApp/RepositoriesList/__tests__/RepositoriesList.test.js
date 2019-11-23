@@ -65,7 +65,7 @@ describe('RepositoriesList', () => {
 
         await wait(300);
 
-        expect(getByText('BullshitGenerator')).toBeTruthy();
+        expect(getByText('lite-youtube-embed')).toBeTruthy();
     });
 
     it('Render error', async () => {
