@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { memo } from 'react';
+import PropTypes from 'prop-types';
 
 import { TextInput } from 'components/TextInput';
 import { LicenseSelect } from '../LicenseSelect';
 
 import cm from './Header.module.css';
 
-export const Header = React.memo(({ setSearchName, setLicense }) => {
+export const Header = memo(({ setSearchName, setLicense }) => {
   return (
     <div className={cm.header}>
       <div className={cm.headerItem}>
@@ -25,3 +26,10 @@ export const Header = React.memo(({ setSearchName, setLicense }) => {
     </div>
   );
 });
+
+Header.displayName = 'Header';
+
+Header.propTypes = {
+  setSearchName: PropTypes.func.isRequired,
+  setLicense: PropTypes.func.isRequired,
+};
