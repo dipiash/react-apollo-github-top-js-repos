@@ -1,4 +1,4 @@
-export const getDateSearchByCondition = (condition = '>=', date = new Date()) => {
+export const getDateCondition = (condition = '>=', date = new Date()) => {
   date.setDate(1);
 
   const year = date.getFullYear();
@@ -12,7 +12,7 @@ export const getDateSearchByCondition = (condition = '>=', date = new Date()) =>
   return `created:${condition}${year}-${month}-${day}`;
 };
 
-export const getLicenseParams = license => {
+export const getLicenseCondition = license => {
   if (!license || +license === 0) {
     return '';
   }
@@ -20,4 +20,20 @@ export const getLicenseParams = license => {
   return `license:${license}`;
 };
 
-export const getSearchNameParams = searchName => (searchName ? `${searchName} in:name` : '');
+export const getRepositoryNameCondition = repositoryName => (repositoryName ? `${repositoryName} in:name` : '');
+
+export const getSortCondition = (field, sortBy = 'desc') => {
+  if (!field) {
+    return '';
+  }
+
+  return `sort:${field}-${sortBy}`;
+};
+
+export const getLanguageCondition = lang => {
+  if (!lang) {
+    return '';
+  }
+
+  return `language:${lang}`;
+};

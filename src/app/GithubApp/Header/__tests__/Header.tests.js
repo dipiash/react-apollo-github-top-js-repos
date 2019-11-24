@@ -32,12 +32,12 @@ describe('Header', () => {
       license: '',
     };
 
-    const setSearchName = name => (state.name = name);
+    const setRepositoryName = name => (state.name = name);
     const setLicense = license => (state.license = license);
 
     const { getByText, getByTestId } = render(
       <MockedProvider mocks={mocks.success}>
-        <Header setSearchName={setSearchName} setLicense={setLicense} />
+        <Header setRepositoryName={setRepositoryName} setLicense={setLicense} />
       </MockedProvider>,
     );
     expect(getByText('Loading data ...')).toBeTruthy();

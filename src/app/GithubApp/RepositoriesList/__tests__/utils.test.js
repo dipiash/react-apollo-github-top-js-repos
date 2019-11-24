@@ -1,6 +1,12 @@
-import { getDateSearchByCondition, getLicenseParams, getSearchNameParams } from '../utils';
+import {
+  getDateCondition,
+  getLanguageCondition,
+  getLicenseCondition,
+  getRepositoryNameCondition,
+  getSortCondition
+} from '../utils';
 
-describe('getDateSearchByCondition', () => {
+describe('getDateCondition', () => {
   let year = null;
   let month = null;
   let day = null;
@@ -18,56 +24,88 @@ describe('getDateSearchByCondition', () => {
     day = day > 9 ? day : `0${day}`;
   });
 
-  it('getDateSearchByCondition =>', () => {
-    const getDateSearchDefault = getDateSearchByCondition();
+  it('getDateCondition =>', () => {
+    const getDateSearchDefault = getDateCondition();
     expect(getDateSearchDefault).toBe(`created:>=${year}-${month}-${day}`);
   });
 
-  it('getDateSearchByCondition <=', () => {
-    const getDateSearchLate = getDateSearchByCondition('<=');
+  it('getDateCondition <=', () => {
+    const getDateSearchLate = getDateCondition('<=');
     expect(getDateSearchLate).toBe(`created:<=${year}-${month}-${day}`);
   });
 
-  it('getDateSearchByCondition <= and date exists with month < 10', () => {
-    const getDateSearchLate = getDateSearchByCondition('<=', new Date('2019-06-01'));
+  it('getDateCondition <= and date exists with month < 10', () => {
+    const getDateSearchLate = getDateCondition('<=', new Date('2019-06-01'));
     expect(getDateSearchLate).toBe(`created:<=2019-06-01`);
   });
 
-  it('getDateSearchByCondition <= and date exists with day < 10', () => {
-    const getDateSearchLate = getDateSearchByCondition('<=', new Date('2019-11-10'));
+  it('getDateCondition <= and date exists with day < 10', () => {
+    const getDateSearchLate = getDateCondition('<=', new Date('2019-11-10'));
     expect(getDateSearchLate).toBe(`created:<=2019-11-01`);
   });
 
-  it('getDateSearchByCondition <= and date exists with day < 10 and month < 10', () => {
-    const getDateSearchLate = getDateSearchByCondition('<=', new Date('2019-06-09'));
+  it('getDateCondition <= and date exists with day < 10 and month < 10', () => {
+    const getDateSearchLate = getDateCondition('<=', new Date('2019-06-09'));
     expect(getDateSearchLate).toBe(`created:<=2019-06-01`);
   });
 });
 
-describe('getLicenseParams', () => {
-  it('getLicenseParams without params', () => {
-    expect(getLicenseParams()).toBe('');
+describe('getLicenseCondition', () => {
+  it('getLicenseCondition without params', () => {
+    expect(getLicenseCondition()).toBe('');
   });
 
-  it('getLicenseParams with null param', () => {
-    expect(getLicenseParams(null)).toBe('');
+  it('getLicenseCondition with null param', () => {
+    expect(getLicenseCondition(null)).toBe('');
   });
 
-  it('getLicenseParams with valid param', () => {
-    expect(getLicenseParams('mit')).toBe('license:mit');
+  it('getLicenseCondition with valid param', () => {
+    expect(getLicenseCondition('mit')).toBe('license:mit');
   });
 });
 
-describe('getSearchNameParams', () => {
-  it('getSearchNameParams without params', () => {
-    expect(getSearchNameParams()).toBe('');
+describe('getRepositoryNameCondition', () => {
+  it('getRepositoryNameCondition without params', () => {
+    expect(getRepositoryNameCondition()).toBe('');
   });
 
-  it('getSearchNameParams with null param', () => {
-    expect(getSearchNameParams(null)).toBe('');
+  it('getRepositoryNameCondition with null param', () => {
+    expect(getRepositoryNameCondition(null)).toBe('');
   });
 
-  it('getSearchNameParams with valid param', () => {
-    expect(getSearchNameParams('react')).toBe('react in:name');
+  it('getRepositoryNameCondition with valid param', () => {
+    expect(getRepositoryNameCondition('react')).toBe('react in:name');
+  });
+});
+
+describe('getSortCondition', () => {
+  it('getSortCondition without params', () => {
+    expect(getSortCondition()).toBe('');
+  });
+
+  it('getSortCondition with null param', () => {
+    expect(getSortCondition(null)).toBe('');
+  });
+
+  it('getSortCondition with field param and default sortBy', () => {
+    expect(getSortCondition('stars')).toBe('sort:stars-desc');
+  });
+
+  it('getSortCondition with field param and sort by asc', () => {
+    expect(getSortCondition('stars', 'asc')).toBe('sort:stars-asc');
+  });
+});
+
+describe('getLanguageCondition', () => {
+  it('getLanguageCondition without params', () => {
+    expect(getLanguageCondition()).toBe('');
+  });
+
+  it('getLanguageCondition with null param', () => {
+    expect(getLanguageCondition(null)).toBe('');
+  });
+
+  it('getLanguageCondition with field param and default sortBy', () => {
+    expect(getLanguageCondition('JavaScript')).toBe('language:JavaScript');
   });
 });

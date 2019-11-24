@@ -6,7 +6,7 @@ import { LicenseSelect } from '../LicenseSelect';
 
 import cm from './Header.module.css';
 
-export const Header = memo(({ setSearchName, setLicense }) => {
+export const Header = memo(({ setRepositoryName, setLicense }) => {
   return (
     <div className={cm.header}>
       <div className={cm.headerItem}>
@@ -16,7 +16,7 @@ export const Header = memo(({ setSearchName, setLicense }) => {
           className={cm.headerField}
           name="search"
           placeholder="Search by repository name"
-          onChange={e => setSearchName(e.target.value)}
+          onChange={e => setRepositoryName(e.target.value)}
         />
       </div>
       <div className={cm.headerItem}>
@@ -30,6 +30,6 @@ export const Header = memo(({ setSearchName, setLicense }) => {
 Header.displayName = 'Header';
 
 Header.propTypes = {
-  setSearchName: PropTypes.func.isRequired,
+  setRepositoryName: PropTypes.func.isRequired,
   setLicense: PropTypes.func.isRequired,
 };

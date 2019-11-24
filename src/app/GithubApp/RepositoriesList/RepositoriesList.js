@@ -2,23 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Pagination } from './Pagination';
-
-import { Query } from 'react-apollo';
-import { getListRepositories } from 'gql/query';
-
-import { getDateSearchByCondition, getLicenseParams, getSearchNameParams } from './utils';
 import { Table } from 'components/Table';
 import { Loader } from 'components/Loader';
 import { Error } from 'components/Error';
 
-export const RepositoriesList = ({ license, searchName, limit }) => {
+import { Query } from 'react-apollo';
+import { getListRepositories } from 'gql/query';
+
+import { getDateCondition, getLanguageCondition, getLicenseCondition, getRepositoryNameCondition, getSortCondition } from './utils';
+
+export const RepositoriesList = ({ license, repositoryName, limit }) => {
   const queryString = [
-    // TODO: Can move up or to another function to create a custom filters by line
-    'sort:stars-desc',
-    'language:JavaScript',
-    getDateSearchByCondition(),
-    getLicenseParams(license),
-    getSearchNameParams(searchName),
+    getSortCondition('stars', 'desc'),
+    getLanguageCondition('JavaScript'),
+    getDateCondition(),
+    getLicenseCondition(license),
+    getRepositoryNameCondition(repositoryName),
   ].join(' ');
   const limitItems = limit || 10;
 
@@ -72,7 +71,7 @@ export const RepositoriesList = ({ license, searchName, limit }) => {
 
 RepositoriesList.propTypes = {
   license: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-  searchName: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  repositoryName: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   limit: PropTypes.number,
 };
 

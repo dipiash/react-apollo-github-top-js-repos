@@ -8,17 +8,17 @@ import { MockedProvider } from '@apollo/react-testing';
 import { RepositoriesList } from '../index';
 
 import { getListRepositories } from 'gql/query/getListRepositories';
-import { getDateSearchByCondition, getLicenseParams, getSearchNameParams } from '../utils';
+import { getDateCondition, getLicenseCondition, getRepositoryNameCondition } from '../utils';
 
 import { wait } from 'utils/tests/await';
 
 import repositoriesListMockDataSuccess from './fixtures/result.success';
 import repositoriesListMockDataError from './fixtures/result.error';
 
-const license = getLicenseParams();
-const name = getSearchNameParams();
+const license = getLicenseCondition();
+const name = getRepositoryNameCondition();
 
-const queryString = ['sort:stars-desc', 'language:JavaScript', getDateSearchByCondition(), license, name].join(' ');
+const queryString = ['sort:stars-desc', 'language:JavaScript', getDateCondition(), license, name].join(' ');
 const limitItems = 10;
 
 const mocks = {
