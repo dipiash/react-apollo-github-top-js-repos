@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@apollo/react-hooks": "^3.1.3",
+    "@rehooks/online-status": "^1.1.2",
     "apollo-boost": "^0.4.4",
     "classnames": "^2.2.6",
     "graphql": "^14.5.8",
