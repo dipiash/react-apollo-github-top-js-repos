@@ -1,13 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Pagination } from './Pagination';
+import { Pagination } from 'components/Pagination';
 import { Table } from 'components/Table';
 import { Loader } from 'components/Loader';
 import { Error } from 'components/Error';
 
 import { Query } from 'react-apollo';
 import { getListRepositories } from 'gql/query';
+
+import { enhancedFetchMore, getPaginationParams } from './utils';
 
 export const RepositoriesTable = ({ queryString, limit }) => {
   return (
@@ -23,33 +25,33 @@ export const RepositoriesTable = ({ queryString, limit }) => {
       {({ data, error, loading, fetchMore }) => {
         const resultData = (data && data.search && data.search.edges) || [];
 
+        const tableColumns = {
+          name: 'Name',
+          stars: 'Stars',
+          license: 'License',
+          date: 'Date',
+        };
+        const tableData = resultData.map(listItem => ({
+          key: listItem.node.id,
+          name: listItem.node.name,
+          stars: listItem.node.stargazers && listItem.node.stargazers.totalCount,
+          license: listItem.node.licenseInfo && listItem.node.licenseInfo.name,
+          date: listItem.node.createdAt,
+        }));
+
+        const tableError = error ? <Error text="Repositories list loading error." /> : false;
+
+        const pageInfo = data && data.search && data.search.pageInfo;
+        const paginationParams = getPaginationParams(pageInfo);
+
         return (
           <Loader loading={loading} data-testif="repositories-list-loading">
-            <Table
-              columns={{
-                name: 'Name',
-                stars: 'Stars',
-                license: 'License',
-                date: 'Date',
-              }}
-              data={resultData.map(listItem => {
-                return {
-                  key: listItem.node.id,
-                  name: listItem.node.name,
-                  stars: listItem.node.stargazers && listItem.node.stargazers.totalCount,
-                  license: listItem.node.licenseInfo && listItem.node.licenseInfo.name,
-                  date: listItem.node.createdAt,
-                };
-              })}
-              error={error ? <Error text="Repositories list loading error." /> : false}
-            />
+            <Table columns={tableColumns} data={tableData} error={tableError} />
             <Pagination
-              fetchMore={fetchMore}
-              loading={loading}
-              queryString={queryString}
-              limit={limit}
-              cursorBefore={data && data.search.pageInfo.hasPreviousPage && data.search.pageInfo.startCursor}
-              cursorAfter={data && data.search.pageInfo.hasNextPage && data.search.pageInfo.endCursor}
+              onPrevClick={() => enhancedFetchMore({ fetchMore, queryString, cursorBefore: paginationParams.cursorBefore, limit })}
+              onNextClick={() => enhancedFetchMore({ fetchMore, queryString, cursorAfter: paginationParams.cursorAfter, limit })}
+              isPrevDisabled={paginationParams.isPreviousDisabled}
+              isNextDisabled={paginationParams.isNextDisabled}
             />
           </Loader>
         );
