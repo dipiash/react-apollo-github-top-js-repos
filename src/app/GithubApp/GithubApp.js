@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDebounce } from 'use-debounce';
 
-import { RepositoriesList } from './RepositoriesList';
+import { RepositoriesTable } from './RepositoriesTable';
 import { Header } from './Header';
 
 import { getDateCondition, getLanguageCondition, getLicenseCondition, getRepositoryNameCondition, getSortCondition } from './utils';
@@ -23,7 +23,7 @@ export const GithubApp = () => {
   return (
     <>
       <Header setLicense={setLicense} setRepositoryName={setRepositoryName} />
-      <RepositoriesList queryString={queryString} limit={10} />
+      <RepositoriesTable queryString={queryString} limit={10} />
     </>
   );
 };

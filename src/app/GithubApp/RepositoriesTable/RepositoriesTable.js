@@ -9,7 +9,7 @@ import { Error } from 'components/Error';
 import { Query } from 'react-apollo';
 import { getListRepositories } from 'gql/query';
 
-export const RepositoriesList = ({ queryString, limit }) => {
+export const RepositoriesTable = ({ queryString, limit }) => {
   return (
     <Query
       query={getListRepositories}
@@ -58,7 +58,7 @@ export const RepositoriesList = ({ queryString, limit }) => {
   );
 };
 
-RepositoriesList.propTypes = {
+RepositoriesTable.propTypes = {
   queryString: PropTypes.string.isRequired,
   limit: PropTypes.number,
 };

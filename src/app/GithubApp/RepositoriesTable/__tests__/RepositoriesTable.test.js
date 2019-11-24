@@ -5,7 +5,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { MockedProvider } from '@apollo/react-testing';
 
-import { RepositoriesList } from '../index';
+import { RepositoriesTable } from '../index';
 
 import { getListRepositories } from 'gql/query/getListRepositories';
 import { getSortCondition, getLanguageCondition, getDateCondition, getLicenseCondition, getRepositoryNameCondition } from '../../utils';
@@ -15,10 +15,13 @@ import { wait } from 'utils/tests/await';
 import repositoriesListMockDataSuccess from './fixtures/result.success';
 import repositoriesListMockDataError from './fixtures/result.error';
 
-const license = getLicenseCondition();
-const name = getRepositoryNameCondition();
-
-const queryString = [getSortCondition('stars'), getLanguageCondition('JavaScript'), getDateCondition(), license, name].join(' ');
+const queryString = [
+  getSortCondition('stars'),
+  getLanguageCondition('JavaScript'),
+  getDateCondition(),
+  getLicenseCondition(),
+  getRepositoryNameCondition,
+].join(' ');
 const limitItems = 10;
 
 const mocks = {
@@ -49,11 +52,11 @@ const mocks = {
   ],
 };
 
-describe('RepositoriesList', () => {
+describe('RepositoriesTable', () => {
   it('Render with success response', async () => {
     const { getByText } = render(
       <MockedProvider mocks={mocks.success}>
-        <RepositoriesList queryString={queryString} limit={10} />
+        <RepositoriesTable queryString={queryString} limit={10} />
       </MockedProvider>,
     );
     expect(getByText('Loading data ...')).toBeTruthy();
@@ -66,7 +69,7 @@ describe('RepositoriesList', () => {
   it('Render error', async () => {
     const { getByText } = render(
       <MockedProvider mocks={mocks.error}>
-        <RepositoriesList queryString={queryString} limit={10} />
+        <RepositoriesTable queryString={queryString} limit={10} />
       </MockedProvider>,
     );
     expect(getByText('Loading data ...')).toBeTruthy();
