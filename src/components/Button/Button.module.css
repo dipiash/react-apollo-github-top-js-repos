@@ -14,3 +14,7 @@
 .buttonComponent:disabled {
   cursor: not-allowed;
 }
+
+.buttonComponent:disabled:hover {
+  background: none;
+}
