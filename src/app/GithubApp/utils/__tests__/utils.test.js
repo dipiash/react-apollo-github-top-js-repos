@@ -1,10 +1,4 @@
-import {
-  getDateCondition,
-  getLanguageCondition,
-  getLicenseCondition,
-  getRepositoryNameCondition,
-  getSortCondition
-} from '../utils';
+import { getDateCondition, getLanguageCondition, getLicenseCondition, getRepositoryNameCondition, getSortCondition } from '../utils';
 
 describe('getDateCondition', () => {
   let year = null;

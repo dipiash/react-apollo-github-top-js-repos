@@ -38,3 +38,7 @@ Pagination.propTypes = {
   cursorBefore: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
   limit: PropTypes.number,
 };
+
+Pagination.defaultProps = {
+  limit: 10,
+};

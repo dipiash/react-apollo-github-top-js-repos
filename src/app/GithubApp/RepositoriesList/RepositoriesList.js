@@ -9,25 +9,14 @@ import { Error } from 'components/Error';
 import { Query } from 'react-apollo';
 import { getListRepositories } from 'gql/query';
 
-import { getDateCondition, getLanguageCondition, getLicenseCondition, getRepositoryNameCondition, getSortCondition } from './utils';
-
-export const RepositoriesList = ({ license, repositoryName, limit }) => {
-  const queryString = [
-    getSortCondition('stars', 'desc'),
-    getLanguageCondition('JavaScript'),
-    getDateCondition(),
-    getLicenseCondition(license),
-    getRepositoryNameCondition(repositoryName),
-  ].join(' ');
-  const limitItems = limit || 10;
-
+export const RepositoriesList = ({ queryString, limit }) => {
   return (
     <Query
       query={getListRepositories}
       variables={{
         queryString: queryString,
         cursorAfter: null,
-        first: limitItems,
+        first: limit,
       }}
       fetchPolicy="cache-and-network"
     >
@@ -47,7 +36,7 @@ export const RepositoriesList = ({ license, repositoryName, limit }) => {
                 return {
                   key: listItem.node.id,
                   name: listItem.node.name,
-                  stars: listItem.node.stargazers.totalCount,
+                  stars: listItem.node.stargazers && listItem.node.stargazers.totalCount,
                   license: listItem.node.licenseInfo && listItem.node.licenseInfo.name,
                   date: listItem.node.createdAt,
                 };
@@ -58,7 +47,7 @@ export const RepositoriesList = ({ license, repositoryName, limit }) => {
               fetchMore={fetchMore}
               loading={loading}
               queryString={queryString}
-              limit={limitItems}
+              limit={limit}
               cursorBefore={data && data.search.pageInfo.hasPreviousPage && data.search.pageInfo.startCursor}
               cursorAfter={data && data.search.pageInfo.hasNextPage && data.search.pageInfo.endCursor}
             />
@@ -70,8 +59,7 @@ export const RepositoriesList = ({ license, repositoryName, limit }) => {
 };
 
 RepositoriesList.propTypes = {
-  license: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
-  repositoryName: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  queryString: PropTypes.string.isRequired,
   limit: PropTypes.number,
 };
 

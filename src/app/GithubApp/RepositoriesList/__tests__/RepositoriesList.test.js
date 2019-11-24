@@ -8,7 +8,7 @@ import { MockedProvider } from '@apollo/react-testing';
 import { RepositoriesList } from '../index';
 
 import { getListRepositories } from 'gql/query/getListRepositories';
-import { getDateCondition, getLicenseCondition, getRepositoryNameCondition } from '../utils';
+import { getSortCondition, getLanguageCondition, getDateCondition, getLicenseCondition, getRepositoryNameCondition } from '../../utils';
 
 import { wait } from 'utils/tests/await';
 
@@ -18,7 +18,7 @@ import repositoriesListMockDataError from './fixtures/result.error';
 const license = getLicenseCondition();
 const name = getRepositoryNameCondition();
 
-const queryString = ['sort:stars-desc', 'language:JavaScript', getDateCondition(), license, name].join(' ');
+const queryString = [getSortCondition('stars'), getLanguageCondition('JavaScript'), getDateCondition(), license, name].join(' ');
 const limitItems = 10;
 
 const mocks = {
@@ -53,7 +53,7 @@ describe('RepositoriesList', () => {
   it('Render with success response', async () => {
     const { getByText } = render(
       <MockedProvider mocks={mocks.success}>
-        <RepositoriesList license={license} searchName={name} limit={10} />
+        <RepositoriesList queryString={queryString} limit={10} />
       </MockedProvider>,
     );
     expect(getByText('Loading data ...')).toBeTruthy();
@@ -66,7 +66,7 @@ describe('RepositoriesList', () => {
   it('Render error', async () => {
     const { getByText } = render(
       <MockedProvider mocks={mocks.error}>
-        <RepositoriesList license={license} searchName={name} limit={10} />
+        <RepositoriesList queryString={queryString} limit={10} />
       </MockedProvider>,
     );
     expect(getByText('Loading data ...')).toBeTruthy();
