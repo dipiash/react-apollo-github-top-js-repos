@@ -10,7 +10,7 @@ describe('TextInput', () => {
   it('Should be render and change value', () => {
     let inputValue = '';
 
-    const { container } = render(<TextInput onChange={e => (inputValue = e.target.value)} />);
+    const { container } = render(<TextInput onChange={(e) => (inputValue = e.target.value)} />);
 
     const inputComponent = container.firstChild;
 

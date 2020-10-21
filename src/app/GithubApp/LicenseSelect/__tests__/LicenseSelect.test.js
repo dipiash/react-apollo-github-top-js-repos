@@ -42,7 +42,7 @@ describe('LicenseSelect', () => {
       value: '0',
     };
 
-    const onChange = e => {
+    const onChange = (e) => {
       e.persist();
       state.value = e.target.value;
     };

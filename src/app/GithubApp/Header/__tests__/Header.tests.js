@@ -32,8 +32,8 @@ describe('Header', () => {
       license: '',
     };
 
-    const setRepositoryName = name => (state.name = name);
-    const setLicense = license => (state.license = license);
+    const setRepositoryName = (name) => (state.name = name);
+    const setLicense = (license) => (state.license = license);
 
     const { getByText, getByTestId } = render(
       <MockedProvider mocks={mocks.success}>
