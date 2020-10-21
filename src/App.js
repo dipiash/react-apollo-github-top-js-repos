@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { ApolloProvider } from '@apollo/client';
 
@@ -9,19 +9,20 @@ import { OnlineStatus } from 'components/OnlineStatus';
 
 function App() {
   const isTokenExist = Boolean(process.env.REACT_APP_GITHUB_TOKEN || localStorage.getItem('token'));
+  console.log(isTokenExist)
 
   const updateToken = () => {
     const token = prompt('Введите ваш personal-access-token от Github, чтобы начать взаимодействие с API');
 
     localStorage.setItem('token', token);
-    window.location = '/';
+    window.location = '.';
+
+    return null;
   };
 
-  useEffect(() => {
-    if (!isTokenExist) {
-      updateToken();
-    }
-  }, [isTokenExist]);
+  if (!isTokenExist) {
+    updateToken();
+  }
 
   return (
     <OnlineStatus>
