@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/react-apollo-github-top-js-repos/static/css/main.a3e60bb0.chunk.css",
+    "main.js": "/react-apollo-github-top-js-repos/static/js/main.78251cce.chunk.js",
+    "main.js.map": "/react-apollo-github-top-js-repos/static/js/main.78251cce.chunk.js.map",
+    "runtime-main.js": "/react-apollo-github-top-js-repos/static/js/runtime-main.08b75595.js",
+    "runtime-main.js.map": "/react-apollo-github-top-js-repos/static/js/runtime-main.08b75595.js.map",
+    "static/css/2.764ccc25.chunk.css": "/react-apollo-github-top-js-repos/static/css/2.764ccc25.chunk.css",
+    "static/js/2.be9bf28a.chunk.js": "/react-apollo-github-top-js-repos/static/js/2.be9bf28a.chunk.js",
+    "static/js/2.be9bf28a.chunk.js.map": "/react-apollo-github-top-js-repos/static/js/2.be9bf28a.chunk.js.map",
+    "index.html": "/react-apollo-github-top-js-repos/index.html",
+    "precache-manifest.679f47cdbeb39745d6336d62a155bf4b.js": "/react-apollo-github-top-js-repos/precache-manifest.679f47cdbeb39745d6336d62a155bf4b.js",
+    "service-worker.js": "/react-apollo-github-top-js-repos/service-worker.js",
+    "static/css/2.764ccc25.chunk.css.map": "/react-apollo-github-top-js-repos/static/css/2.764ccc25.chunk.css.map",
+    "static/css/main.a3e60bb0.chunk.css.map": "/react-apollo-github-top-js-repos/static/css/main.a3e60bb0.chunk.css.map",
+    "static/js/2.be9bf28a.chunk.js.LICENSE.txt": "/react-apollo-github-top-js-repos/static/js/2.be9bf28a.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.08b75595.js",
+    "static/css/2.764ccc25.chunk.css",
+    "static/js/2.be9bf28a.chunk.js",
+    "static/css/main.a3e60bb0.chunk.css",
+    "static/js/main.78251cce.chunk.js"
+  ]
+}
