@@ -30,7 +30,7 @@ const mocks = {
         query: getListLicenses,
       },
       result: {
-        error: licensesListMockDataError,
+        errors: licensesListMockDataError,
       },
     },
   ],
