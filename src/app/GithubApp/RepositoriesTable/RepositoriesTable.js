@@ -20,7 +20,7 @@ export const RepositoriesTable = ({ queryString, limit }) => {
     },
   });
 
-  const resultData = (data && data.search && data.search.edges) || [];
+  const resultData = useMemo(() => (data && data.search && data.search.edges) || [], [data]);
 
   const tableColumns = {
     name: 'Name',
