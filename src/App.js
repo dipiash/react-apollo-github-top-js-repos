@@ -9,7 +9,7 @@ import { OnlineStatus } from 'components/OnlineStatus';
 
 function App() {
   const isTokenExist = Boolean(process.env.REACT_APP_GITHUB_TOKEN || localStorage.getItem('token'));
-  console.log(isTokenExist)
+  console.log(isTokenExist);
 
   const updateToken = () => {
     const token = prompt('Введите ваш personal-access-token от Github, чтобы начать взаимодействие с API');
