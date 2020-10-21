@@ -12,7 +12,7 @@
     "prettier",
     "plugin:prettier/recommended"
   ],
-  "plugins": ["react"],
+  "plugins": ["react", "react-hooks"],
   "rules": {
     "react/no-unsafe": [2, {"checkAliases": true}],
     "react/no-deprecated": 2,

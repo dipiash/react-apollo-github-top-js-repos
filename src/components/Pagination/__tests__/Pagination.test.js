@@ -21,7 +21,7 @@ describe('Pagination', () => {
     let isPrevClick = false;
     let isNextClick = false;
 
-    const { container, getByTestId } = new render((<Pagination onPrevClick={() => (isPrevClick = true)} onNextClick={() => (isNextClick = true)} />));
+    const { container, getByTestId } = new render(<Pagination onPrevClick={() => (isPrevClick = true)} onNextClick={() => (isNextClick = true)} />);
 
     const nextButton = getByTestId('button-next');
     fireEvent.click(nextButton);

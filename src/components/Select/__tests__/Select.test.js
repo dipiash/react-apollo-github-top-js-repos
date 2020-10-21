@@ -26,7 +26,7 @@ describe('Select', () => {
   it('Select should be render and change value', () => {
     let selectedValue = 0;
 
-    const { container } = render(<Select options={options} onChange={e => (selectedValue = e.target.value)} />);
+    const { container } = render(<Select options={options} onChange={(e) => (selectedValue = e.target.value)} />);
 
     const selectComponent = container.firstChild;
 

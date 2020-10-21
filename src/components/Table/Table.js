@@ -10,7 +10,7 @@ export const Table = ({ columns, data, error }) => {
     <div className={cm.table}>
       <div className={cm.thead}>
         <div className={cm.tr}>
-          {columnKeys.map(key => (
+          {columnKeys.map((key) => (
             <div className={cm.th} key={key}>
               {columns[key]}
             </div>
@@ -20,9 +20,9 @@ export const Table = ({ columns, data, error }) => {
       <div className={cm.tbody}>
         {error ? error : null}
         {!error && (!data || (data && !data.length)) && <div className={cm.empty}>No data</div>}
-        {data.map(item => (
+        {data.map((item) => (
           <div className={cm.tr} key={item.key}>
-            {columnKeys.map(key => (
+            {columnKeys.map((key) => (
               <div className={cm.td} key={key} data-label={columns[key]}>
                 {item[key] || '---'}
               </div>

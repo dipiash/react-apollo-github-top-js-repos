@@ -16,12 +16,12 @@ export const Header = memo(({ setRepositoryName, setLicense }) => {
           className={cm.headerField}
           name="search"
           placeholder="Search by repository name"
-          onChange={e => setRepositoryName(e.target.value)}
+          onChange={(e) => setRepositoryName(e.target.value)}
         />
       </div>
       <div className={cm.headerItem}>
         <label>License type</label>
-        <LicenseSelect className={cm.headerField} onChange={e => setLicense(e.target.value)} />
+        <LicenseSelect className={cm.headerField} onChange={(e) => setLicense(e.target.value)} />
       </div>
     </div>
   );

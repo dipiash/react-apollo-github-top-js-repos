@@ -3,7 +3,7 @@ import '@testing-library/jest-dom';
 
 import React from 'react';
 import { render } from '@testing-library/react';
-import { MockedProvider } from '@apollo/react-testing';
+import { MockedProvider } from '@apollo/client/testing';
 
 import { RepositoriesTable } from '../index';
 
@@ -34,6 +34,7 @@ const mocks = {
           cursorAfter: null,
           first: limitItems,
         },
+        notifyOnNetworkStatusChange: true,
       },
       result: {
         data: repositoriesListMockDataSuccess,
@@ -44,9 +45,15 @@ const mocks = {
     {
       request: {
         query: getListRepositories,
+        variables: {
+          queryString,
+          cursorAfter: null,
+          first: limitItems,
+        },
+        notifyOnNetworkStatusChange: true,
       },
       result: {
-        error: repositoriesListMockDataError,
+        errors: repositoriesListMockDataError,
       },
     },
   ],

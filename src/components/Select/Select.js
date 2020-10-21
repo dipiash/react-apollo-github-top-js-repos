@@ -7,7 +7,7 @@ import cm from './Select.module.css';
 export const Select = ({ className, onChange, options, ...rest }) => (
   <select disabled={!options || (options && options.length === 0)} className={cn(cm.select, className)} onChange={onChange} {...rest}>
     {options &&
-      options.map(item => (
+      options.map((item) => (
         <option key={item.key} value={item.key}>
           {item.name}
         </option>

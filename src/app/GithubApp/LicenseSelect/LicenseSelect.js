@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import { Select } from 'components/Select';
 
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/client';
 import { getListLicenses } from 'gql/query';
 import { Loader } from 'components/Loader';
 import { Error } from 'components/Error';
@@ -17,7 +17,7 @@ export const LicenseSelect = ({ onChange, ...rest }) => {
     return <Error text="Licenses loading error." />;
   }
 
-  const options = data ? firstEmptySelectItem.concat(data.licenses.map(license => ({ key: license.key, name: license.name }))) : [];
+  const options = data ? firstEmptySelectItem.concat(data.licenses.map((license) => ({ key: license.key, name: license.name }))) : [];
 
   return (
     <Loader loading={loading} data-testid="licenses-select-loading">

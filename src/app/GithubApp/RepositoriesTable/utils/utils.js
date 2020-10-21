@@ -7,6 +7,7 @@ export const enhancedFetchMore = ({ fetchMore, queryString, cursorBefore, cursor
       last: cursorBefore ? limit || 10 : null,
       first: cursorAfter ? limit || 10 : null,
     },
+    notifyOnNetworkStatusChange: true,
     updateQuery: (prev, { fetchMoreResult }) => {
       if (!fetchMoreResult) return prev;
 
@@ -15,7 +16,7 @@ export const enhancedFetchMore = ({ fetchMore, queryString, cursorBefore, cursor
   });
 };
 
-export const getPaginationParams = pageInfo => {
+export const getPaginationParams = (pageInfo) => {
   let cursorBefore = null;
   let cursorAfter = null;
 
