@@ -91,7 +91,7 @@ describe('getSortCondition', () => {
 });
 
 describe('getLanguageCondition', () => {
-  it('getLanguageCondition without params', () => {
+  it('checks if getLanguageCondition without params is an empty string', () => {
     expect(getLanguageCondition()).toBe('');
   });
 
